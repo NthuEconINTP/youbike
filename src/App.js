@@ -39,8 +39,20 @@ function App() {
   const fetchData = async () => {
     const response = await fetch('https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json');
     const data = await response.json();
-    console.log(data);
+  
+    // 更新站點資料
     setStations(data);
+  
+    // 更新 favorite 物件中的站點資料
+    setFavorites((prevFavorites) =>
+      prevFavorites.map((fav) => {
+        const updatedStation = data.find((station) => station.sno === fav.sno);
+        if (updatedStation) {
+          return { ...fav, sbi: updatedStation.sbi, tot: updatedStation.tot };
+        }
+        return fav;
+      })
+    );
   };
   
   return (
