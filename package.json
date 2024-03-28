@@ -2,7 +2,7 @@
   "name": "youbike",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://NthuEconINTP.github.io/youbike",
+  "homepage": "https://nthueconintp.github.io/youbike",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
